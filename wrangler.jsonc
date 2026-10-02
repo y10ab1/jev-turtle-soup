@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jev-turtle-soup-api",
+  "main": "server/worker.ts",
+  "compatibility_date": "2026-10-02",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://y10ab1.github.io,http://127.0.0.1:5173,http://localhost:5173,http://127.0.0.1:4173,http://127.0.0.1:18730,http://127.0.0.1:18731"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "jev-turtle-soup",
+      "database_id": "c3cac3ab-4e8a-43d9-acad-89b3f4a55f14"
+    }
+  ],
+  "ratelimits": [
+    { "name": "RATE_LIMITER", "namespace_id": "1042", "simple": { "limit": 30, "period": 60 } }
+  ],
+  "triggers": { "crons": ["0 4 * * *"] }
+}

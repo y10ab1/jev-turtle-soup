@@ -1,0 +1,38 @@
+{
+  "name": "jev-turtle-soup",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "check": "npm test && npm run build",
+    "test:e2e": "playwright test",
+    "test:live": "tsx scripts/check-live.ts",
+    "dev:api": "wrangler dev --port 8787",
+    "db:local": "wrangler d1 execute jev-turtle-soup --local --file=server/schema.sql",
+    "db:remote": "wrangler d1 execute jev-turtle-soup --remote --file=server/schema.sql",
+    "deploy:api": "wrangler deploy"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261002.1",
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "miniflare": "^5.20261001.0-alpha",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.1",
+    "vitest": "^3.2.4",
+    "wrangler": "^4.0.0"
+  }
+}
